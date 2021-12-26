@@ -12,13 +12,12 @@ script:
   - docker run -e CI=true lastland/react-test-app npm run test
 
 after-success:
-  - docker build -t lastland/docker-frontend ./frontend
-  - docker build -t lastland/docker-backend ./backend
-  - docker build -t lastland/docker-nginx ./nginx
+  - docker build -t locallab/docker-frontend ./frontend
+  - docker build -t locallab/docker-backend ./backend
+  - docker build -t locallab/docker-nginx ./nginx
 
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
-  - docker push lastland/docker-frontend
-  - docker push lastland/docker-backend
-  - docker push lastland/docker-nginx
-  
+  - docker push locallab/docker-frontend
+  - docker push locallab/docker-backend
+  - docker push locallab/docker-nginx
