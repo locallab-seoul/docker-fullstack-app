@@ -21,3 +21,4 @@ after-success:
   - docker push lastland/docker-frontend
   - docker push lastland/docker-backend
   - docker push lastland/docker-nginx
+  
